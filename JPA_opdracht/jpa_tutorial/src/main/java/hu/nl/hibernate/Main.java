@@ -27,25 +27,25 @@ public class Main {
       }
       Session session = factory.openSession();
 
-      // Hier begint de transactie
+      // Begin transactie
       Transaction t = session.beginTransaction();
 
-      // We gaan de transactie opzetten.
+      //Transactie opzetten.
       // Eerst maken we Student objecten:
       Student student1 = new Student(3, "Michele", "Onbekend");
       Student student2 = new Student(4, "Bart", "Onbekend");
 
-      // Studenten een voor een saven aan de transactie
+      // Studenten een voor een saven
       session.save(student1);
       session.save(student2);
-      // Hier halen we een student object op met ID 1
+      // Haal student object op met ID 1
 //      Student x = session.load(Student.class, 1);
 
-      //ophalen en dan de setters aanroepen om gegevens te wijzigen en dan saven
+      //ophalen dan de setters aanroepen om gegevens te wijzigen
 //      x.setLastname("Nieuwe achternaam");
 //      x.setFirstname("Micheleeee");
 
-      // je haalt object op, en stopt hem in session.delete
+      // Haal object op, en stop hem in session.delete
 //      session.delete(x);
 
 //      session.save(x);
@@ -53,7 +53,7 @@ public class Main {
       //Log log = new Log(1,"Hibernate works!");
 
       t.commit();
-      // Transactie eindigt hier, gegevens zitten nu in de database
+      // Transactie eindigt hier
       System.out.println("successfully saved");    
       factory.close();  
       session.close();   
